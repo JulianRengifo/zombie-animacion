@@ -1,0 +1,843 @@
+
+        
+        @import url('https://fonts.googleapis.com/css?family=Creepster');
+        :root {
+            --background: #0F2F3C;
+            --skin: #8EC83E;
+            --black: #10122B;
+            --white: #fff;
+            --brain: #fc76a3;
+            --tooth: #FFF998;
+            --slime: #DAE21C;
+        }
+        
+        body{
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: grid;           /* =↓ */ 
+            place-items: center;
+            counter-reset: score;
+                /*  Centra el telefono */
+        }
+
+        .phone{
+            position: relative;
+        border: 8px solid black;
+        border-radius: 40px;
+        height: 600px;
+        width: 300px;
+        background-color: var(--background);
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+        
+        }  /* Se crea el telefono */
+
+
+        .title {
+            color: var(--tooth);
+            margin-top: 30px;
+            text-align: center;
+            letter-spacing: 2.2px;
+            font-size: 25px;
+            font-family:  fantasy;    
+        }
+
+        .score{
+            
+            color: var(--tooth);
+            font-family: fantasy ;
+            font-size: 16px;
+            margin: 0;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .score:after{
+            content: counter(score);
+        }
+        
+        .layer {
+        position: absolute;
+        height: 465px;
+        width: 80px;
+        background-color: #CCEFFF(27, 188, 89);
+        border-radius: 10px;
+    }
+
+
+    .land {
+        position: absolute;
+        width: 220px;
+        height: 410px;
+        bottom: 0;
+        background-color: #B7584D;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 2px 4px 10px black;  /* Sombra isla */ 
+        
+    }  /* isla */
+
+      .lawn {
+        position:absolute;
+        content: '';
+        width:100%;
+        height: 30px;
+        top: 0px;
+        background:
+        radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+        radial-gradient(at 100% 0%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),rgb(244, 17, 17);
+        background-size: 20px 20px;
+        border-radius: 20px 20px 0 0;
+
+      }
+
+        .layer-1{
+        z-index: 1;
+        bottom: 0;
+        right: 50px;
+
+       animation-name: layer-b;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;  /* El tipo de acelearcion que deseemos */
+        animation-iteration-count: infinite;
+        }
+
+        @keyframes layer-b{
+            0%{
+                bottom: 0;
+            }
+
+            25%{
+                bottom: -80px;
+            }
+
+            100%{
+                bottom: 0;
+            } /* COnejo saltando */
+
+        }
+
+        input[type=checkbox]{
+            appearance: none;
+            cursor: pointer;
+            height: 50px;
+            margin: 0;
+            position: relative;
+            top: 0;
+            width: 80%;
+            z-index: 2;
+        }
+
+        input[type=checkbox]:focus {
+            appearance: none;
+            outline: none;
+        }
+
+        input:checked{ 
+            counter-increment: score;
+        }
+
+        .score::after{
+            content: counter(score);
+        }
+
+        .layer-1 input [type=checkbox] {
+            animation-name: bunny;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        } /* CLase hijo input de tipo checkbox  animacion para el input  */
+
+        @keyframes bunny{
+            0%{
+                top:0;
+            }
+
+            25%{
+                top: 80px;
+            }
+
+            100%{
+                top: 0;
+            }
+        }  
+        
+
+        .layer-2 input [type= checkbox] {
+
+            animation-name: bunny;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        input[type=checkbox]:focus{
+            appearance: none;
+            outline: none;
+        }
+
+        input:checked{
+            counter-increment: score;
+        }
+
+        .score::after{
+            content: counter(score);
+        }
+
+        .layer-2{
+        z-index: 2;
+
+        bottom: 0; /* (aquellos que tienen la propiedad position: absolute o position: fixed), 
+        la propiedad bottom determina la distancia entre el borde inferior del elemento y el borde inferior de su bloque contenedor.*/
+
+        left: 50px;  /* La propiedad left especifica parte de la posición de un elemento (posicionado - es decir, con una posición determinada por código). */
+        
+        animation-name: layer-b;
+        animation-duration: 8s;  /*  Tiempo que tarda el zombie en subir y bajar  */
+        animation-timing-function: ease-in-out;  /* El tipo de acelearcion que deseemos */
+        animation-iteration-count: infinite;
+    
+        }
+
+        .layer-3 {
+        z-index: 3;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        
+    }
+
+
+    .layer-4 input [type= checkbox] {
+
+        animation-name: bunny;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    input[type=checkbox]:focus{
+        appearance: none;
+        outline: none;
+    }
+
+    input:checked{
+        counter-increment: score;
+    }
+
+    .score::after{
+        content: counter(score);
+    }
+
+    .layer-4 {
+        z-index: 4;
+        bottom: 0;
+        left: 30px;
+        height: 355px;
+        border-radius: 20px 20px 0 30px;
+
+        animation-name: layer-b;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;  /* El tipo de acelearcion que deseemos */
+        animation-iteration-count: infinite;
+        
+    }
+
+    .layer-5 {
+        z-index: 5;
+        height: 300px;
+        width: 190px;
+
+        border-radius: 20px 20px 0 30px;
+    }
+
+
+    .layer-6 input [type= checkbox] {
+
+        animation-name: bunny;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    input[type=checkbox]:focus{
+        appearance: none;
+        outline: none;
+    }
+
+    input:checked{
+        counter-increment: score;
+    }
+
+    .score::after{
+        content: counter(score);
+    }
+
+    .layer-6 {
+        z-index: 6;
+        bottom: 0;
+        right: 13px;
+        height: 255px;
+
+        animation-name: layer-b;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;  /* El tipo de acelearcion que deseemos */
+        animation-iteration-count: infinite;
+    }
+
+    .layer-7 {
+        z-index: 7;
+
+        right: 0;
+        height: 200px;
+        width: 190px;
+        border-radius: 20px 20px 30px 0;
+    }
+
+    .layer-8 {
+        position: absolute;
+        z-index: 8;
+        bottom: 0;
+
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+
+        width: 125px;
+        height: 100px;
+        background-color: #57BD60;
+        border-radius: 50px 50px 0 0;
+
+    }
+
+
+    .layer-9 {
+        position: absolute;
+        z-index: 9;
+        bottom: 0;
+        width: 125px;
+        height: 110px;
+        border-radius: 0 50px 0 30px;
+
+    }
+
+    .layer-10 {
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        right: 0;
+
+        width: 125px;
+        height: 110px;
+        
+        border-radius: 50px 0 30px 0;
+
+    }
+
+   /* .left-ear-outer{
+        background: rgb(254, 254, 254);
+        border-radius: 90%;
+        width: 20px;
+        height: 50px;
+        position: absolute;
+        left: 10px;
+        top: 0px;
+    }
+
+    .left-ear-inner{
+        background: pink;
+        border-radius: 90%;
+        width: 10px;
+        height: 50px;
+        position: absolute;
+        left: 15px;
+        top: 8px;
+    }  /* left-ear-outer y left-ear-inner es la oreja izquierda */  
+
+
+   /* .right-ear-outer{
+        background: white;
+        border-radius: 90%;
+        width: 20px;
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        top:0px;
+    }
+
+    .right-ear-inner{
+        background: pink;
+        border-radius: 90%;
+        width: 10px;
+        height: 50px;
+        position: absolute;
+        right: 15px;
+        top: 8px;
+    }*/
+
+    .head{
+        background: var(--skin);
+        border-radius: 20%;
+        box-shadow: 0px 0px 5px 0px var(--black);
+        height: 80px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        position: absolute;
+        top: -3px;
+        width: 100%;
+
+    }
+
+
+    .brain{
+        content: '';
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: -10px;
+        right: -3px;
+        background-color: var(--background);
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+
+    .brain:before{
+        content: '';
+        height: 21px;
+        width: 29px;
+        position: absolute;
+        background: var(--brain);
+        bottom: -2px;
+        left: -3px;
+        border-radius: 20%;
+        box-shadow: 0px 0px 5px 0px var(--black);
+    }
+
+
+    .brain-b{
+        content: '';
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: -10px;
+        right: -3px;
+        background-color: #B7584D;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .brain-b:before{
+        content: '';
+        height: 21px;
+        width: 29px;
+        position: absolute;
+        background: var(--brain);
+        bottom: -2px;
+        left: -3px;
+        border-radius: 20%;
+        box-shadow: 0px 0px 5px 0px var(--black);
+    }
+
+    
+
+    .head-eye{
+        background: var(--black);
+        border-radius: 50%;
+        width: 12px;   
+        height: 12px;               /*  Propiedad a animar */
+        position: absolute;
+        top: 14px;
+
+        animation-name: blink;   /* Parpadeo de los ojos */
+        animation-duration: 3s;
+        animation-iteration-count: infinite;  /* Parpadeo infinito */
+    }
+
+    @keyframes blink {
+        0%{
+            height: 4px;
+        }
+
+        5%{
+            transform: translate(0px, 2px);  /* Parpadear el ojo en la mitad debido a que sin esto pardea hacia arriba */
+            height: 1px;
+        }
+
+        10%{
+            transform: translate(0px, 0px);
+            height: 4px;
+        }
+
+
+    }  /* Tiempo de duracion del parpadeo de los ojos  */ 
+
+    .head-eye::after {
+
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0 ;
+        right: 0;
+        margin: auto;
+        background: var(--white);
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+
+        animation-name: pupila;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes pupila {
+
+        0%{
+            height: 4px;
+        }
+
+        5%{
+            transform: scale(0,0);
+            height: 1px;
+        }
+
+        10%{
+            transform: translate(0px, 0px);
+            height: 4px;
+        }
+    }
+
+
+    .head-eye-left{
+        left: 25px;
+    }
+
+    .head-eye-right{
+        right:25px;
+    }
+
+    .ear-left{
+        position: absolute;
+        top: 0;
+        bottom: 20px;
+        left: -7px;
+        margin: auto 0;
+        width: 12px;
+        height: 12px;
+        background: var(--skin);
+        opacity: 0.8;
+        border-radius: 50%;
+    }
+
+    .ear-right{
+        position: absolute;
+        top: 0;
+        bottom: 20px;
+        right: -7px;
+        margin: auto 0;
+        width: 12px;
+        height: 12px;
+        background: var(--skin);
+        opacity: 0.8;
+        border-radius: 50%;
+    }
+
+    .nose{
+        width: 10%;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .nose::before{
+        content: '';
+        position: absolute;
+        bottom: 24px;
+        left: 0;
+        width: 3px;
+        height: 3px;
+        background: var(--black);
+        opacity: 0.7;
+        border-radius: 50%;
+    }
+    
+    .nose::after{
+        content: '';
+        position: absolute;
+        bottom: 24px;            /* Subir punto  */
+        left: 4px;
+        width: 3px;
+        height: 3px;
+        background: var(--black);
+        opacity: 0.7;
+        border-radius: 50%;
+    }
+
+    .mouth{
+        position: absolute;
+        height: 15px;
+        width: 45px;
+        border-radius: 35px;
+        background: 35px;
+        background: var(--black);
+        bottom: 32px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+
+    .tooth-1{
+        position: absolute;
+        bottom: 0px;
+        left: 30px;
+        height: 5px;
+        width: 5px;
+        background: var(--tooth);
+        border-radius: 10px 10px 0 0;
+    }
+
+    .tooth-2{
+        position: absolute;
+        bottom: 9px;
+        right: 18px;
+        height: 6px;
+        width: 5px;
+        background: var(--tooth);
+        border-radius: 0 0 10px 10px;
+    }
+
+    .tooth-3{
+        position: absolute;
+        bottom: 0px;
+        right: 30px;
+        height: 5px;
+        width: 5px;
+        background: var(--tooth);
+        border-radius: 10px 10px 0 0;
+    }
+
+    .slime{
+        background: var(--slime);
+        position: absolute;
+        bottom: 0px;
+        width: 9px;
+        height: 5px;
+        left: 1px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .slime-1{
+        background: var(--slime);
+        position: absolute;
+        bottom: -7px;
+        width: 2px;
+        height: 9px;
+        left: 1px;
+        border-radius: 10px;
+        animation: slime-1 5s  infinite;
+    }
+
+    .slime-2{
+        background: var(--slime);
+        position: absolute;
+        bottom: -9px;
+        width: 2px;
+        height: 12px;
+        left: 4.5px;
+        border-radius: 10px;
+        animation: slime-2 5s infinite;
+    }
+
+    .slime-3{
+        background: var(--slime);
+        position: absolute;
+        bottom: -5px;
+        width: 2px;
+        height: 7px;
+        left: 8px;
+        border-radius: 10px;
+        animation: slime-1 5s infinite;
+    }
+
+    @keyframes slime-1 {
+        0% { transform: translateY(0);}
+        25% { transform: translateY(1px);}
+        50% { transform: translateY(0);}
+        75% { transform: translateY(1px);}
+        100% { transform: translateY(0);}
+    }
+
+    @keyframes slime-2 {
+        0% { transform: translateY(0);}
+        25% { transform: translateY(0);}
+        50% { transform: translateY(1px);}
+        75% { transform: translateY(0);}
+        100% { transform: translateY(0);}
+    }
+
+    @keyframes slime-2 {
+        0% { transform: translateY(0);}
+        25% { transform: translateY(0);}
+        50% { transform: translateY(1px);}
+        75% { transform: translateY(0);}
+        100% { transform: translateY(0);}
+    }
+    
+    .detail-1{
+        position: absolute;
+        top: 5px;
+        left: 20px;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background: var(--tooth);
+        opacity: 0.5;
+    }
+
+    .detail-2{
+        position: absolute;
+        top: 50px;
+        left: 65px;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background: var(--tooth);
+        opacity: 0.5;
+    }
+
+    .detail-3{
+        position: absolute;
+        top: 30px;
+        left: 5px;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background: var(--tooth);
+        opacity: 0.5;
+    }
+
+    .detail-4{
+        position: absolute;
+        top: 10px;
+        left: 60px;
+        height: 4px;
+        width: 4px;
+        border-radius: 50%;
+        background: var(--tooth);
+        opacity: 0.5;
+        z-index: 3;
+    }
+
+    .detail-5{
+        position: absolute;
+        top: 5px;
+        left: 70px;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background: var(--tooth);
+        opacity: 0.5;
+        z-index: 3;
+    }
+
+    .circulo{
+
+        position: absolute;
+        height: 90px;
+        width: 90px;
+        bottom: 0;
+        left: 20px;
+        background-color: #f59622;
+        border-radius: 50%;
+        
+    }
+
+    .circulo::before{
+
+        content: '';
+        position: absolute;
+        height: 60px;
+        width: 60px;
+        bottom: 0;
+        left: 16px;
+        background-color: #ffee18;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .flame-1{
+        content: '';
+        height: 60px;
+        width: 52px;
+        background-color: #f59622;
+        position: absolute;
+        top: -10px;
+        left: -12px;
+        border-radius: 0% 145% 0% 90%;
+        transform: rotateZ(17deg) skewY(30deg);
+    }
+
+    .flame-1::before{
+        content: '';
+        height: 38px;
+        width: 30px;
+        background-color: #ffee18;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        border-radius: 0% 145% 0% 90%;
+        transform: rotateZ(-22deg) skewY(30deg);
+        
+    }
+    
+    .flame-2{
+        height: 60px;
+        width: 52px;
+        background-color: #f59622;
+        position: absolute;
+        top: -50px;
+        left: 12px;
+        border-radius: 0% 90% 0% 145%;
+        transform: rotateZ(30deg)  skewY(30deg);
+    }
+
+    .flame-2::before{
+        content: '';
+        height: 50px;
+        width: 42px;
+        background-color: #ffee18;
+        position: absolute;
+        top: 20px;
+        left: 22px;
+        border-radius: 0% 90% 0% 145%;
+        transform: rotateZ(-10deg) skewY(30deg);
+        
+    }
+
+    .flame-3{
+        height: 60px;
+        width: 52px;
+        background-color: #f59622;
+        position: absolute;
+        top: -10px;
+        left: 45px;
+        border-radius: 0% 90% 0% 145%;
+        transform: rotateZ(32deg)  skewY(30deg);
+    }
+
+    .flame-3::before{
+        content: '';
+        height: 38px;
+        width: 30px;
+        background-color: #ffee18;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        border-radius: 0% 90% 0% 145%;
+        transform: rotateZ(0deg) skewY(30deg);
+    }
